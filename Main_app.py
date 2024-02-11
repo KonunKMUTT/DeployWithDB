@@ -1,7 +1,7 @@
 import pickle
 import pandas as pd
 import streamlit as st
-from googleapiclient import discovery
+import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 # Set up Google Sheets credentials
