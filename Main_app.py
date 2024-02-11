@@ -1,8 +1,7 @@
 import pickle
 import pandas as pd
 import streamlit as st
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+from streamlit_gsheets import GSheetsConnection
 
 # Load the model
 with open('model.pkl', 'rb') as file:
