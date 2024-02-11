@@ -4,11 +4,6 @@ import streamlit as st
 import GSheetsConnection
 from streamlit_gsheets 
 
-# Set up Google Sheets credentials
-scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
-client = gspread.authorize(creds)
-
 # Load the Google Sheets worksheet
 sheet = client.open('Your Google Sheet Name').sheet1  # Change 'Your Google Sheet Name' to the name of your Google Sheet
 
