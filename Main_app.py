@@ -4,6 +4,27 @@ import streamlit as st
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
+# Set up Google Sheets credentials
+scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+creds = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
+client = gspread.authorize(creds)
+
+# Load the Google Sheets worksheet
+sheet = client.open('Your Google Sheet Name').sheet1  # Change 'Your Google Sheet Name' to the name of your Google Sheet
+
+# Streamlit app
+def main():
+    st.title('Google Sheets Connection')
+    
+    # Example: Read data from Google Sheets
+    data = sheet.get_all_records()
+    st.write('Data from Google Sheets:')
+    st.write(data)
+
+if __name__ == '__main__':
+    main()
+
+
 # Load the model
 with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
