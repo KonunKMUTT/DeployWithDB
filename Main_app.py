@@ -1,6 +1,7 @@
 import pickle
 import pandas as pd
 import streamlit as st
+import gspread
 
 # Load the model
 with open('model.pkl', 'rb') as file:
@@ -56,6 +57,10 @@ def main():
         
         # Display the styled result
         st.markdown(styled_result, unsafe_allow_html=True)
+
+        gc = gspread.service_account(filename='token.json')
+        sh = gc.open('IS_HeartDiseasePredictionApp').sheet1
+        sh.append_row(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male, result )
 
 if __name__ == '__main__':
     main()
