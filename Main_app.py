@@ -63,7 +63,6 @@ if __name__ == '__main__':
     main()
 
         # Create a connection object.
-       scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
        creds = ServiceAccountCredentials.from_json_keyfile_name('token.json', scope)
        client = gspread.authorize(creds)
         
