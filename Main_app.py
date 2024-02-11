@@ -3,6 +3,7 @@ import pandas as pd
 import streamlit as st
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+from streamlit_gsheets import GSheetsConnection
 
 # Set up Google Sheets credentials
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
