@@ -4,14 +4,6 @@ import streamlit as st
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-# Set up Google Sheets credentials
-scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name('token.json', scope)
-client = gspread.authorize(creds)
-
-# Load the Google Sheets worksheet
-sheet = client.open('IS_HeartDiseasePredictionApp').sheet1  # Change 'Your Google Sheet Name' to the name of your Google Sheet
-
 # Load the model
 with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
@@ -66,6 +58,14 @@ def main():
         
         # Display the styled result
         st.markdown(styled_result, unsafe_allow_html=True)
+
+        # Set up Google Sheets credentials
+        scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+        creds = ServiceAccountCredentials.from_json_keyfile_name('token.json', scope)
+        client = gspread.authorize(creds)
+
+        # Load the Google Sheets worksheet
+        sheet = client.open(IS_HeartDiseasePredictionApp).sheet1  # Change 'Your Google Sheet Name' to the name of your Google Sheet
         
         sh.append_row(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male, result )
 
