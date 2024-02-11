@@ -1,8 +1,8 @@
 import pickle
 import pandas as pd
 import streamlit as st
-from oauth2client.service_account import ServiceAccountCredentials
-from streamlit_gsheets import GSheetsConnection
+import gspread
+from google.oauth2.service_account import Credentials
 
 # Set up Google Sheets credentials
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
