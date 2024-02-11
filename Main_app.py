@@ -63,8 +63,9 @@ if __name__ == '__main__':
     main()
 
         # Create a connection object.
-       creds = ServiceAccountCredentials.from_json_keyfile_name('token.json', scope)
-       client = gspread.authorize(creds)
+        scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+        creds = ServiceAccountCredentials.from_json_keyfile_name('token.json', scope)
+        client = gspread.authorize(creds)
         
         # Load the Google Sheets worksheet
         sheet = client.open('IS_HeartDiseasePredictionApp').sheet1  # Change 'Your Google Sheet Name' to the name of your Google Sheet
