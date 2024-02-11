@@ -58,15 +58,12 @@ def main():
         # Display the styled result
         st.markdown(styled_result, unsafe_allow_html=True)
 
-        # Set up Google Sheets credentials
-        scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-        creds = ServiceAccountCredentials.from_json_keyfile_name('token.json', scope)
-        client = gspread.authorize(creds)
-
+      # Create a connection object.
+        conn = st.connection("gsheets", type=GSheetsConnection)
+        
         # Load the Google Sheets worksheet
         sheet = client.open('IS_HeartDiseasePredictionApp').sheet1  # Change 'Your Google Sheet Name' to the name of your Google Sheet
-        
-        sh.append_row(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male, result )
+        sheet.append_row(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male, result )
 
 if __name__ == '__main__':
     main()
