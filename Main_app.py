@@ -65,7 +65,7 @@ def main():
         client = gspread.authorize(creds)
 
         # Load the Google Sheets worksheet
-        sheet = client.open(IS_HeartDiseasePredictionApp).sheet1  # Change 'Your Google Sheet Name' to the name of your Google Sheet
+        sheet = client.open('IS_HeartDiseasePredictionApp').sheet1  # Change 'Your Google Sheet Name' to the name of your Google Sheet
         
         sh.append_row(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male, result )
 
