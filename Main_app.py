@@ -2,7 +2,7 @@ import pickle
 import pandas as pd
 import streamlit as st
 import GSheetsConnection
-from streamlit_gsheets 
+from streamlit_gsheets
 
 # Load the Google Sheets worksheet
 sheet = client.open('Your Google Sheet Name').sheet1  # Change 'Your Google Sheet Name' to the name of your Google Sheet
