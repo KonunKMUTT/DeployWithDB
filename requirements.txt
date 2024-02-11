@@ -1,4 +1,5 @@
 streamlit>=1.28
+gspread
 st-gsheets-connection
 scikit-learn==1.2.2
 pandas
