@@ -1,7 +1,7 @@
 import pickle
 import pandas as pd
 import streamlit as st
-from streamlit_gshetts import GSheetsConnection
+from streamlit_gsheets import GSheetsConnection
 
 # Set up Google Sheets credentials
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
